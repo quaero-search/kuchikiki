@@ -72,6 +72,12 @@ impl<T> NodeDataRef<T> {
     pub fn as_node(&self) -> &NodeRef {
         &self._keep_alive
     }
+
+    /// Consumes and returns the corresponding node.
+    #[inline]
+    pub fn to_node(self) -> NodeRef {
+        self._keep_alive
+    }
 }
 
 impl<T> Deref for NodeDataRef<T> {
